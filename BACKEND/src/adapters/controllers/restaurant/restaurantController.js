@@ -1,7 +1,7 @@
 import Verifyemail from "../../../application/useCase/restaurant/Verifyemail.js"
 import verifyotp from "../../../application/useCase/restaurant/Verifyotp.js"
 import Addrestaurant from "../../../application/useCase/restaurant/Addrestaurant.js"
-import Login from "../../../application/useCase/restaurant/login.js"
+import Login from "../../../application/useCase/restaurant/Login.js"
 import Getprofile from "../../../application/useCase/restaurant/getprofile.js"
 import addfooddata from "../../../application/useCase/restaurant/Addfooddatas.js"
 import Getallfood from "../../../application/useCase/restaurant/Getallfood.js"
@@ -11,6 +11,7 @@ import Deletefood from "../../../application/useCase/restaurant/Deletefood.js"
 import Getsinglefood from "../../../application/useCase/restaurant/Getsinglefood.js"
 import Editfooddata from "../../../application/useCase/restaurant/Editfooddata.js"
 import Editrestaurant from "../../../application/useCase/restaurant/Editrestaurant.js"
+
 
 const restaurantController = (restaurantRrpositoryInf,restaurantRepositoryImp,restaurantServiceInt,restaurantServiceImp,otpServiceInt,otpServiceImp) => {
 
