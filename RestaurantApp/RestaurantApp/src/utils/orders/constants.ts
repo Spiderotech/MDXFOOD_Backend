@@ -1,1 +1,1 @@
-export const baseUrl = "http://localhost:3000/api/v1/order"
+export const baseUrl = "https://infiniteworldofscience.com/api/v1/order"
