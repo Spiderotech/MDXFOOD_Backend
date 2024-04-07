@@ -1,6 +1,8 @@
 
 
-const Login = async (email, password, dbrepository, authService) => {
+const Login = async (email, password,fcmtoken, dbrepository, authService) => {
+
+  console.log(fcmtoken,"login");
 
   const isEmail = await dbrepository.userexistemail(email)
   console.log(isEmail, "login");
@@ -9,6 +11,8 @@ const Login = async (email, password, dbrepository, authService) => {
     const isPassword = await authService.comparePassword(password, isEmail.password)
 
     if (isPassword) {
+
+      await dbrepository.updateFCMToken(isEmail._id, fcmtoken);
 
       const isRestaurant = {
         userId:isEmail._id,

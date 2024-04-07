@@ -9,6 +9,7 @@ const userauthRepositoryInf=(repository)=>{
     const userProfile=(Id)=>repository.userProfile(Id)
     const passwordupdation=(email,password)=>repository.passwordupdation(email,password)
     const updateFCMToken=(Id,fcmtoken)=>repository.updateFCMToken(Id,fcmtoken)
+    const removeFCMToken=(Id)=>repository.removeFCMToken(Id)
    
 
 
@@ -19,7 +20,8 @@ const userauthRepositoryInf=(repository)=>{
         creategoogle,
         userProfile,
         passwordupdation,
-        updateFCMToken
+        updateFCMToken,
+        removeFCMToken
         
     }
 

@@ -16,7 +16,10 @@ const Createorder = async (restaurantId,userId,items,totalPrice,repositories,ord
       const orderDetails = orderdata(restaurantId,userId,items,totalPrice,neworderId);
       const neworder = await repositories.createorder(orderDetails);
 
-      const fcmToken='ewm5Dbs2Ne4gvUi9W-cwTm:APA91bF6eYnthVRBhnDiKFvyHrpImapLl3pZDzDRoiNFpOJ9Lipc3HNJpDN_VDJllyMxKM_kDwG8ocRemz7S9EISWsW3JgkMfrVjVQ7nXmGtzmJ0SmY-ddCVe3xRj7Yfyv5RCCsO0CY8'
+
+      console.log(neworder);
+
+      
 
       if(neworder){
         try {
@@ -28,7 +31,7 @@ const Createorder = async (restaurantId,userId,items,totalPrice,repositories,ord
                 title: 'New Order Arrived', 
                 body: body, 
             },
-            token: fcmToken,
+            token:neworder.restaurantId.fcmToken,
         };
   
           await  admin.messaging().send(message);    

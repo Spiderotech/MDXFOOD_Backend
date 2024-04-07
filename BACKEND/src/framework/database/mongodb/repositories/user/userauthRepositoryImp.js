@@ -72,6 +72,25 @@ const userauthRepositoryImp=()=>{
       
   
     }
+
+    const removeFCMToken = async (Id) => {
+      try {
+        // Find the user by ID
+        const user = await User.findById(Id);
+        
+        // Check if user exists and has an FCM token
+        if (user && user.fcmToken) {
+          // Remove the FCM token by setting it to null
+          await User.findByIdAndUpdate(Id, { $unset: { fcmToken: "" } });
+          console.log("FCM token removed successfully.");
+        } else {
+          console.log("No FCM token found for the user.");
+        }
+      } catch (error) {
+        console.error("Error removing FCM token:", error);
+        throw error;
+      }
+    };
     
       
 
@@ -85,7 +104,8 @@ const userauthRepositoryImp=()=>{
         create,
         creategoogle,
         passwordupdation,
-        updateFCMToken
+        updateFCMToken,
+        removeFCMToken
         
     }
 

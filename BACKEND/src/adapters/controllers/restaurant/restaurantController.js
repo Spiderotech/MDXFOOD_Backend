@@ -11,6 +11,7 @@ import Deletefood from "../../../application/useCase/restaurant/Deletefood.js"
 import Getsinglefood from "../../../application/useCase/restaurant/Getsinglefood.js"
 import Editfooddata from "../../../application/useCase/restaurant/Editfooddata.js"
 import Editrestaurant from "../../../application/useCase/restaurant/Editrestaurant.js"
+import Removetoken from "../../../application/useCase/restaurant/Removetoken.js"
 
 
 const restaurantController = (restaurantRrpositoryInf,restaurantRepositoryImp,restaurantServiceInt,restaurantServiceImp,otpServiceInt,otpServiceImp) => {
@@ -59,8 +60,8 @@ const restaurantController = (restaurantRrpositoryInf,restaurantRepositoryImp,re
     }
 
     const login = (req, res) => {
-        const{email,password}=req.body
-        Login(email,password,dbrepository,authService).then((response)=>{
+        const{email,password,fcmtoken}=req.body
+        Login(email,password,fcmtoken,dbrepository,authService).then((response)=>{
             console.log(response,"login");
             res.json(response)
 
@@ -185,6 +186,18 @@ const restaurantController = (restaurantRrpositoryInf,restaurantRepositoryImp,re
 
     }
 
+    const removetoken=(req,res)=>{
+        const Id = req.query.id;
+        console.log(Id,"auth");
+       
+        Removetoken(Id,dbrepository).then((response)=>{
+            console.log(response);
+            res.json(response)
+    
+        }).catch((err)=>console.log(err))
+    
+     }
+
 
  
 
@@ -201,7 +214,8 @@ const restaurantController = (restaurantRrpositoryInf,restaurantRepositoryImp,re
         deletefooditem,
         selectfooddata,
         updatefooditems,
-        updaterestaurant
+        updaterestaurant,
+        removetoken
         
     }
 }

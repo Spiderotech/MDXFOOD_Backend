@@ -6,6 +6,9 @@ import Googlelogin from "../../../application/useCase/user/Googlelogin.js"
 import Createusergoogle from "../../../application/useCase/user/Createusergoogle.js"
 import Forgotteuserverification from "../../../application/useCase/user/Forgotteuserverification.js"
 import Passwordupdation from "../../../application/useCase/user/Passwordupdation.js"
+import Removetoken from "../../../application/useCase/user/Removetoken.js"
+
+
 const authController = (userauthRepositoryInf, userauthRepositoryImp, userauthServiceInt, userauthServiceImp) => {
 
     const dbrepository = userauthRepositoryInf(userauthRepositoryImp())
@@ -125,6 +128,19 @@ const authController = (userauthRepositoryInf, userauthRepositoryImp, userauthSe
     }
 
 
+    const removetoken=(req,res)=>{
+        const Id = req.query.id;
+        console.log(Id,"auth");
+       
+        Removetoken(Id,dbrepository).then((response)=>{
+            console.log(response);
+            res.json(response)
+    
+        }).catch((err)=>console.log(err))
+    
+     }
+
+
     return {
         verifyemail,
         verifyphone,
@@ -133,7 +149,8 @@ const authController = (userauthRepositoryInf, userauthRepositoryImp, userauthSe
         googlelogin,
         usergoogle,
         changepassword,
-        forgotteverification
+        forgotteverification,
+        removetoken
 
     }
 

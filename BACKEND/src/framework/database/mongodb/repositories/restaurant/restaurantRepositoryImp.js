@@ -183,6 +183,43 @@ const restaurantRepositoryImp = () => {
        
 
     }
+
+
+    const updateFCMToken = async(Id,fcmtoken) => {
+
+        console.log(fcmtoken);
+  
+        try {
+          await Restaurant.findByIdAndUpdate(Id, { fcmToken: fcmtoken });
+          console.log("FCM token updated successfully.");
+        } catch (error) {
+          console.error("Error updating FCM token:", error);
+          throw error; 
+        }
+         
+        
+    
+      }
+
+      const removeFCMToken = async (Id) => {
+        console.log(Id);
+        try {
+          const user = await Restaurant.findById(Id);
+          
+         
+          if (user && user.fcmToken) {
+            // Remove the FCM token by setting it to null
+            await Restaurant.findByIdAndUpdate(Id, { $unset: { fcmToken: "" } });
+            console.log("FCM token removed successfully.");
+          } else {
+            console.log("No FCM token found for the user.");
+          }
+        } catch (error) {
+          console.error("Error removing FCM token:", error);
+          throw error;
+        }
+      };
+      
     
     
     
@@ -203,7 +240,9 @@ const restaurantRepositoryImp = () => {
         deletefooditem,
         singlefooddata,
         editfooditem,
-        editrestaurant
+        editrestaurant,
+        updateFCMToken,
+        removeFCMToken
         
         
     }

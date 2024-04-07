@@ -35,9 +35,10 @@ const otpServiceImp = () => {
         try {
           await transporter.sendMail(mailOptions);
           console.log("OTP sent successfully to:", email);
+          return true;
         } catch (error) {
           console.error("Error sending OTP:", error);
-          throw error;
+          return false;
         }
       };
 

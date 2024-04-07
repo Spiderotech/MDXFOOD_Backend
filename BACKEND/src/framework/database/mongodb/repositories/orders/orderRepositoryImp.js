@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const orderRepositoryImp = () => {
 
 
-    const createorder = (orderDetails) => {
+    const createorder =async (orderDetails) => {
        
         const neworder = new Order({
             orderId:orderDetails?.getorderid(),
@@ -15,7 +15,11 @@ const orderRepositoryImp = () => {
          
     
         })
-        return neworder.save()
+        await neworder.save()
+
+        const populatedOrder = await Order.findById(neworder._id).populate('restaurantId').exec();
+
+        return populatedOrder;
     
       }
 

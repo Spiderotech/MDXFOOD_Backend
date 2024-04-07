@@ -63,7 +63,7 @@ const Register = () => {
 
                     } else {
 
-                        toast.error("user already exists")
+                        toast.error(response.data.message)
 
                     }
                 })

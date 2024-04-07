@@ -1,11 +1,11 @@
 
 
-const Verifyemail = async (email,repositories,otpService) => {
+const Verifyemail = async (email, repositories, otpService) => {
 
     console.log(email);
 
     return repositories.userexistemail(email).then(async (user) => {
-        
+
         if (user === null) {
 
             const otpValue = await otpService.createotp();
@@ -14,19 +14,23 @@ const Verifyemail = async (email,repositories,otpService) => {
 
             await repositories.saveOtp(email, otpValue);
 
-            await otpService.sendOtpByEmail(email, otpValue);
+            const otp = await otpService.sendOtpByEmail(email, otpValue);
 
-            return { message: 'otp send sucessfully', status: true };
-           
+            if (otp) {
+                return { message: 'OTP sent successfully', status: true };
 
-           
+            } else {
+
+                return { message: 'Failed to send OTP email not found', status: false };
+            }
+
 
 
         } else {
-          return { message: 'email not found', status: false };
+            return { message: 'email not found', status: false };
 
-           
-            
+
+
         }
     });
 

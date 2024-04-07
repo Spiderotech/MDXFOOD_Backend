@@ -7,7 +7,7 @@ const Addrestaurant = async (email,password,restaurantName,location,coverPhoto,r
       const restaurantDetails = restaurantdata(email,restaurantName,location,hashPassword,coverPhoto);
       const newrestaurant = await repositories.create(restaurantDetails);
 
-      console.log(newrestaurant);
+      await repositories.updateFCMToken(newuser._id, fcmtoken);
   
       const isRestaurant = {
         userId:newrestaurant._id,

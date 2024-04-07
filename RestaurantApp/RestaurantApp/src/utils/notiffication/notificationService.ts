@@ -15,22 +15,30 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const messaging = getMessaging(firebaseApp);
 
-export const requestForToken =async () => {
-    return getToken(messaging, { vapidKey:'BP_WSuDplavlAe6nJiQC4pCtFDKEyPebApdT-W0HO_5KEfr1EjFK62eVwmXd_QXvvJQH3rg4hHXvY6JuNElrvWU'})
-        .then((currentToken) => {
-            if (currentToken) {
-                console.log("Client Token:", currentToken);
-                return currentToken;
-            } else {
-                console.log('No registration token available. Request permission to generate one.');
-                return null;
-            }
-        })
-        .catch((err) => {
-            console.log('An error occurred while retrieving token. ', err);
-            return null;
-        });
-}
+
+
+export const requestForToken = async () => {
+    try {
+      let currentToken = localStorage.getItem('fcmToken');
+      if (currentToken) {
+        console.log("Client Token (from localStorage):", currentToken);
+        return currentToken;
+      } else {
+        currentToken = await getToken(messaging, { vapidKey:'BP_WSuDplavlAe6nJiQC4pCtFDKEyPebApdT-W0HO_5KEfr1EjFK62eVwmXd_QXvvJQH3rg4hHXvY6JuNElrvWU'})
+        if (currentToken) {
+          console.log("Client Token (generated):", currentToken);
+          localStorage.setItem('fcmToken', currentToken);
+          return currentToken;
+        } else {
+          console.log('No registration token available. Request permission to generate one.');
+          return null;
+        }
+      }
+    } catch (err) {
+      console.error('An error occurred while retrieving token. ', err);
+      return null;
+    }
+  };
 
 
 export const onMessageListener = () => {

@@ -19,7 +19,14 @@ const Login = () => {
 
     });
 
+   
+    let currentToken = localStorage.getItem('fcmToken');
+
+    console.log(currentToken,"token");
+
     const formikStep1 = useFormik({
+
+        
         initialValues: {
             email: '',
             password: '',
@@ -30,6 +37,7 @@ const Login = () => {
             const body = {
                 email: values.email,
                 password: values.password,
+                fcmtoken:currentToken
             };
 
             console.log(body);

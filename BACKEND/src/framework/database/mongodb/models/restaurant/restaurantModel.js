@@ -21,6 +21,10 @@ const restaurantSchema = new Schema({
     },
     restaurantImage: {
         type: String 
+    },
+    fcmToken: {  
+        type: String,
+        required: false  
     }
 });
 

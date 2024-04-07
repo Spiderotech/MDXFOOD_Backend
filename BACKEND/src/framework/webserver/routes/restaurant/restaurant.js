@@ -24,6 +24,7 @@ const restaurant = (express) => {
     router.route('/editfood-item').post(controller.updatefooditems)
     router.route('/allfoods').get(controller.searchfooditems)
     router.route('/update').post(controller.updaterestaurant)
+    router.route('/removetoken').post(controller.removetoken)
 
 
    

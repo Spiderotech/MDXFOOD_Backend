@@ -14,6 +14,8 @@ const restaurantRrpositoryInf = (repository) => {
     const singlefooddata=(Id)=>repository.singlefooddata(Id)
     const editfooditem=(id,fooddetails)=>repository.editfooditem(id,fooddetails)
     const editrestaurant=(Id,restaurantName,location,coverPhoto)=>repository.editrestaurant(Id,restaurantName,location,coverPhoto)
+    const updateFCMToken=(Id,fcmtoken)=>repository.updateFCMToken(Id,fcmtoken)
+    const removeFCMToken=(Id)=>repository.removeFCMToken(Id)
 
     return{
         userexistemail,
@@ -28,7 +30,9 @@ const restaurantRrpositoryInf = (repository) => {
         deletefooditem,
         singlefooddata,
         editfooditem,
-        editrestaurant
+        editrestaurant,
+        updateFCMToken,
+        removeFCMToken
         
     }
 }
