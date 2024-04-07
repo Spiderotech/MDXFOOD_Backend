@@ -6,7 +6,7 @@ const Createuser = async (fullName,email,phoneNumber,password,fcmtoken,repositor
       const userDetails = userdata(fullName,email,phoneNumber,hashPassword);
       const newuser = await repositories.create(userDetails);
 
-      await dbrepository.updateFCMToken(newuser._id, fcmtoken);
+      await repositories.updateFCMToken(newuser._id, fcmtoken);
   
       const isuser = {
         userId:newuser._id,

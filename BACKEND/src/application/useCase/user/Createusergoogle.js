@@ -5,7 +5,7 @@ const Createusergoogle= async (fullName,email,phoneNumber,fcmtoken,repositories,
       const userDetails = usergoogledata(fullName,email,phoneNumber);
       const newuser = await repositories.creategoogle(userDetails);
 
-      await dbrepository.updateFCMToken(newuser._id, fcmtoken);
+      await repositories.updateFCMToken(newuser._id, fcmtoken);
   
       const isuser = {
         userId:newuser._id,
