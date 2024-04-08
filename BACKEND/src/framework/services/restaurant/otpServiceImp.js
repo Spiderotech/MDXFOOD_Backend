@@ -21,7 +21,7 @@ const otpServiceImp = () => {
               port: 465,
               auth: {
                   user:"cloud@spidero.in",
-                  pass:"qxomducmjakbydbz",
+                  pass:"tfcjivpvtfqmcqfm",
               },
           });
     
