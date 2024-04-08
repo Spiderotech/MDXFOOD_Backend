@@ -12,7 +12,8 @@ const Createorder = async (restaurantId,userId,items,totalPrice,repositories,ord
       
 
       const getorderId=await repositories.getorderid()
-      const neworderId=await orderService.generateorderId(getorderId.orderId)
+
+      const neworderId=await orderService.generateorderId(getorderId?.orderId || 'MDX000000')
       const orderDetails = orderdata(restaurantId,userId,items,totalPrice,neworderId);
       const neworder = await repositories.createorder(orderDetails);
 
