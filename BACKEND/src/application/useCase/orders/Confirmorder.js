@@ -13,7 +13,7 @@ const Confirmorder = async (Id, repositories) => {
             const message = {
                 notification: {
                     title: 'Order confirm',
-                    body: 'This is a test notification from Firebase Admin SDK!'
+                    body: 'Your Order is confirmed '
                 },
                 token:orderdata.userId.fcmToken
             };

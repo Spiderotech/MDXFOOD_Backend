@@ -12,7 +12,7 @@ const Completeorder =async (Id,repositories) => {
             const message = {
                 notification: {
                     title: 'Order ready to take',
-                    body: 'This is a test notification from Firebase Admin SDK!'
+                    body: 'Your Order is ready .Pick up your order'
                 },
                 token:orderdata.userId.fcmToken
             };
