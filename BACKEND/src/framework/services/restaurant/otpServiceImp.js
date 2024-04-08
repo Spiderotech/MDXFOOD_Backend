@@ -20,8 +20,8 @@ const otpServiceImp = () => {
               host: 'smtp.gmail.com',
               port: 465,
               auth: {
-                  user: config.EMAIL,
-                  pass: config.PASSWORD,
+                  user:"cloud@spidero.in",
+                  pass:"qxomducmjakbydbz",
               },
           });
     
