@@ -46,10 +46,10 @@ const restaurantController = (restaurantRrpositoryInf,restaurantRepositoryImp,re
 
 
     const createrestaurant = (req, res) => {
-        const{email,password,restaurantName,location,coverPhoto}=req.body
+        const{email,password,restaurantName,location,coverPhoto,fcmtoken}=req.body
 
 
-        Addrestaurant(email,password,restaurantName,location,coverPhoto,dbrepository,authService).then((response)=>{
+        Addrestaurant(email,password,restaurantName,location,coverPhoto,fcmtoken,dbrepository,authService).then((response)=>{
             console.log(response);
             res.json(response)
           

@@ -151,6 +151,7 @@ const Register = () => {
                 const userimage = imageUrl.split('?')[0];
                 console.log(userimage);
                 formikStep3.setFieldValue('userimage', userimage);
+                let currentToken = localStorage.getItem('fcmToken');
 
                 const body = {
                     email: formikStep1.values.email,
@@ -158,6 +159,7 @@ const Register = () => {
                     restaurantName: values.restaurantName,
                     location: values.location,
                     coverPhoto:userimage,
+                    fcmtoken:currentToken
                 };
 
                 console.log(body);
@@ -168,10 +170,7 @@ const Register = () => {
                             console.log(response.data);
 
 
-                            localStorage.setItem(
-                                "access_token_admin",
-                                response.data.accessToken
-                              );
+                            localStorage.setItem("access_token_admin", response.data.accessToken);
                               
                               dispatch(
                                 login({
@@ -186,7 +185,7 @@ const Register = () => {
 
                         } else {
 
-                            toast.error("user already exists")
+                            toast.error(response.data.message)
 
                         }
                     })
