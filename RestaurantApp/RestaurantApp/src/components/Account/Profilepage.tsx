@@ -99,7 +99,7 @@ const Profilepage = ({orderCount,total}) => {
                                 <div className="flex items-center justify-center xl:justify-start mt-1 md:mt-0 mb-5 md:mb-0">
                                     <div className="ml-5 rounded-full bg-green-200 text-green-500 text-sm px-6 py-2 flex justify-center items-center">Available</div>
                                 </div>
-                                <button onClick={openModal} className="focus:outline-none ml-0 md:ml-5 bg-indigo-700 dark:bg-indigo-600 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-3 md:px-6 py-2 text-sm">Edit</button>
+                                <button onClick={openModal} className="focus:outline-none ml-0 md:ml-5 bg-indigo-700 dark:bg-indigo-600 transition duration-150 ease-in-out hover:bg-red-600 rounded text-white px-3 md:px-6 py-2 text-sm">Edit</button>
                             </div>
                         </div>
                     </div>

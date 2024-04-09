@@ -50,7 +50,7 @@ const EditProfileModal = ({ isOpen, onClose }) => {
             let imageUrl = profile?.restaurantImage; 
 
             if (values.coverPhoto) {
-                // User has selected a new image
+                
                 const formData = new FormData();
                 formData.append('coverPhoto', values.coverPhoto);
 

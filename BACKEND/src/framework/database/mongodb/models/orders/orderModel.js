@@ -1,6 +1,17 @@
 import { Schema, model } from "mongoose";
 import mongoose from "mongoose";
 
+const extraItemSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    }
+});
+
 const itemSchema = new Schema({
     id: {
         type: mongoose.SchemaTypes.ObjectId,
@@ -17,7 +28,9 @@ const itemSchema = new Schema({
     price: {
         type: Number,
         required: true
-    }
+    },
+    extras: [extraItemSchema] 
+   
 });
 
 const orderSchema = new mongoose.Schema({

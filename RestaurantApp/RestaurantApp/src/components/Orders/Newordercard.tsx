@@ -96,15 +96,21 @@ const Newordercard = ({ order }) => {
 
                 </div>
                 {order.items.map((item, index) => (
-                    <div className='w-auto  flex justify-center items-center  bg-slate-300 m-2 rounded-md'>
+                    <div key={index} className='w-auto flex justify-center items-center bg-slate-300 m-2 rounded-md'>
                         <p className="text-[12px] font-semibold leading-normal text-gray-800 p-2">
-                            {item.name}  X  {item.quantity}
+                            {item.name} X {item.quantity}
                         </p>
-
+                        {item.extras && item.extras.length > 0 && (
+                            <div className="flex flex-col">
+                                {item.extras.map((extra, index) => (
+                                    <p key={index} className="text-[12px] font-semibold leading-normal text-gray-800 p-2">
+                                        + {extra.name}
+                                    </p>
+                                ))}
+                            </div>
+                        )}
                     </div>
-
                 ))}
-
             </div>
             <div className='w-full h-auto  flex flex-row justify-between gap-10  mt-5  '>
                 <div>
