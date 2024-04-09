@@ -85,10 +85,10 @@ const authController = (userauthRepositoryInf, userauthRepositoryImp, userauthSe
 
     const usergoogle = (req, res) => {
 
-        const { fullName, email, phoneNumber,fcmtoken } = req.body
+        const { fullName, email, phoneNumber,fcmToken } = req.body
 
 
-        Createusergoogle(fullName, email, phoneNumber,fcmtoken, dbrepository, authService).then((response) => {
+        Createusergoogle(fullName, email, phoneNumber,fcmToken, dbrepository, authService).then((response) => {
             console.log(response);
             res.json(response)
 

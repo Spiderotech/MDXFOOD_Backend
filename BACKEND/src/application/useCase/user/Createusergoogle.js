@@ -1,11 +1,13 @@
 import usergoogledata from "../../../entities/user/usergoogledata.js";
 
-const Createusergoogle= async (fullName,email,phoneNumber,fcmtoken,repositories,authService) => {
+const Createusergoogle= async (fullName,email,phoneNumber,fcmToken,repositories,authService) => {
     try {
       const userDetails = usergoogledata(fullName,email,phoneNumber);
       const newuser = await repositories.creategoogle(userDetails);
 
-      await repositories.updateFCMToken(newuser._id, fcmtoken);
+      const Id=newuser._id
+
+      await repositories.updateFCMToken(Id,fcmToken);
   
       const isuser = {
         userId:newuser._id,
