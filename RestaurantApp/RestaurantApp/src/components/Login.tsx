@@ -190,7 +190,7 @@ const Login = () => {
                     </div>
                     <div className="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 md:mt-0 mt-6">
                         <div className="pl-8 md:block hidden">
-                            <p className="sm:text-2xl text-xl leading-7 text-gray-600 pl-2.5">MDX Restaurant </p>
+                            <p className="sm:text-2xl text-xl leading-7 text-gray-600 pl-2.5">MDX Food App </p>
                         </div>
                         <div className="flex items-start mt-8">
                             <div>
@@ -205,14 +205,14 @@ const Login = () => {
                                     />
                                 </svg>
                             </div>
-                            <p className="sm:text-2xl text-xl leading-7 text-gray-600 pl-2.5">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
+                            <p className="sm:text-2xl text-xl leading-7 text-gray-600 pl-2.5">⭐️⭐️⭐️⭐️⭐️ MDX FOOD APP is user-friendly, efficient, and queue-busting! It's a lifesaver, making food ordering a breeze while keeping you away from long lines.</p>
                         </div>
                         <div className="flex items-center pl-8 mt-10">
                             <div className="w-8 h-8">
                                 <img src="https://i.ibb.co/xLtZCRT/Mask-Group.png" alt="profile picture" className="w-full h-full" />
                             </div>
                             <div className="ml-2">
-                                <p className="text-sm font-medium leading-none text-gray-800">Team MDX</p>
+                                <p className="text-sm font-medium leading-none text-gray-800">MSc Computer Science(Student)</p>
                             </div>
                         </div>
                     </div>

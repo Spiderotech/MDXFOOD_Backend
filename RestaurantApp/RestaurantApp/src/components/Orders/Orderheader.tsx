@@ -12,7 +12,7 @@ const Orderheader = () => {
                         </p>
                         <div className="flex mt-3 gap-x-2">
                             <p className="text-xs leading-3 text-indigo-700 cursor-pointer">
-                                Mdx
+                            MDX
                             </p>
                             <svg
                                 className="cursor-pointer"

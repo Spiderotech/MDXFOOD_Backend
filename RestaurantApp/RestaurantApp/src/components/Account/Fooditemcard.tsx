@@ -41,11 +41,11 @@ const Fooditemcard = ({ company }) => {
                             <div className="sm:flex sm:justify-between">
                                 <div>
                                     <div className="text-lg text-gray-700">
-                                        <span className="text-gray-900 font-bold">Price</span>  £ {company?.price}
+                                        <span className="text-gray-900 font-bold">Price</span>  £{company?.price}
                                     </div>
                                     <div className="flex items-center">
 
-                                        <div className="text-gray-600  text-md md:text-xl mt-1">
+                                        <div className="text-gray-600  text-md md:text-md mt-1">
                                             Extra items
                                         </div>
                                     </div>
@@ -72,11 +72,11 @@ const Fooditemcard = ({ company }) => {
 
                             {company?.extraItems.map((item, index) => (
                                 <div key={index} className="mt-1 text-gray-600 text-sm md:text-sm flex flex-row">
-                                    <h1 className="text-md font-semibold text-gray-800 mt-1">
+                                    <h1 className="text-lg font-semibold text-gray-800 ">
                                         {item.name}
                                     </h1>
                                     <div className="text-lg text-gray-700 ml-3">
-                                        <span className="text-gray-900 ml-3" > £ {item.price}</span>
+                                        <span className="text-gray-900 ml-3 " > £{item.price}</span>
                                     </div>
                                 </div>
                             ))}
